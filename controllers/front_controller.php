@@ -10,13 +10,13 @@ function add_user(){
 
 	if( !empty($_POST) && $_POST['password']=$_POST['passcheck']) {
 
-		$name = htmlspecialchars($_POST['name']);
+		$pseudo = htmlspecialchars($_POST['pseudo']);
 		$password = htmlspecialchars($_POST['password']);
 		$email = htmlspecialchars($_POST['email']);
 
-		$prepare = $pdo->prepare("INSERT INTO `users` (`name`, `password`, `email`) VALUES (?,?,?) ;");
+		$prepare = $pdo->prepare("INSERT INTO `users` (`pseudo`, `password`, `email`) VALUES (?,?,?) ;");
     
-        $prepare->bindValue(1, $name);
+        $prepare->bindValue(1, $pseudo);
         $prepare->bindValue(2, $password);
         $prepare->bindValue(3, $email);
 
@@ -89,7 +89,7 @@ function auth(){
         
         // redirection vers la page d'administration sécuriser cette page 
         
-        header('Location: main');
+        header('Location: admin');
         exit;
     }else{
     	header('Location: /');

@@ -2,6 +2,8 @@
 
 session_start();
 
+define('SALT', 'SALT123');
+define('TOKEN_TIME', 5);
 define("DB_HOST", "localhost");
 define("DB_USER", "root");
 define("DB_PASSWORD", "");
